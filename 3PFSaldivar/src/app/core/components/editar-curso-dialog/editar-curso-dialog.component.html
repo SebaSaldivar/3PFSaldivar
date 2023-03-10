@@ -1,0 +1,82 @@
+<h1 mat-dialog-title>Editar lista de Alumnos</h1>
+<div mat-dialog-content class="medidas-dialog">
+    <form [formGroup]="formularioEditar" class="input-group-sm mb-3">
+        <div class="row"> 
+            <label for="legajo"  class="form-label">
+            Legajo: - no modificable -  
+            <input type="text" [readOnly]="true" name="legajo" formControlName="legajo" class="form-control">
+                <div class="valido" *ngIf="formularioEditar.controls['legajo'].dirty && formularioEditar.controls['legajo'].valid">Correcto!</div>  
+                <div class="invalido" *ngIf="formularioEditar.controls['legajo'].dirty && formularioEditar.controls['legajo'].errors?.['required']">El campo es requerido</div>
+                <div class="invalido" *ngIf="formularioEditar.controls['legajo'].dirty && formularioEditar.controls['legajo'].errors?.['min']">Ingrese una nota válida </div>
+                <div class="invalido" *ngIf="formularioEditar.controls['legajo'].dirty && formularioEditar.controls['legajo'].errors?.['max']">Ingrese una nota válida</div>
+        </label>
+        </div>
+        <div class="row"> 
+            <label for="nombre"  class="form-label">
+                Nombre: 
+                <input type="text" name="nombre" formControlName="nombre" class="form-control" >   
+                <div class="valido" *ngIf="formularioEditar.controls['nombre'].dirty && formularioEditar.controls['nombre'].valid">Correcto!</div>  
+                <div class="invalido" *ngIf="formularioEditar.controls['nombre'].dirty && formularioEditar.controls['nombre'].errors?.['required']">El campo es requerido</div>
+                <div class="invalido" *ngIf="formularioEditar.controls['nombre'].dirty && formularioEditar.controls['nombre'].errors?.['pattern']">Este campo solo puede contener letras</div>             
+            </label>
+        </div>
+        <div class="row"> 
+            <label for="apellido"  class="form-label">
+                Apellido: 
+                <input type="text" name="apellido" formControlName="apellido" class="form-control" >
+                <div class="valido" *ngIf="formularioEditar.controls['apellido'].dirty && formularioEditar.controls['apellido'].valid">Correcto!</div>  
+                <div class="invalido" *ngIf="formularioEditar.controls['apellido'].dirty && formularioEditar.controls['apellido'].errors?.['required']">El campo es requerido</div>
+                <div class="invalido" *ngIf="formularioEditar.controls['apellido'].dirty && formularioEditar.controls['apellido'].errors?.['pattern']">Este campo solo puede contener letras</div>             
+            </label>
+        </div>
+        <div class="row"> 
+            <label for="notaFinal"  class="form-label">
+                Nota Final: 
+                <input type="number" name="notaFinal" formControlName="notaFinal" class="form-control" >
+                <div class="valido" *ngIf="formularioEditar.controls['notaFinal'].dirty && formularioEditar.controls['notaFinal'].valid">Correcto!</div>  
+                <div class="invalido" *ngIf="formularioEditar.controls['notaFinal'].dirty && formularioEditar.controls['notaFinal'].errors?.['required']">El campo es requerido</div>
+                <div class="invalido" *ngIf="formularioEditar.controls['notaFinal'].dirty && formularioEditar.controls['notaFinal'].errors?.['min']">Ingrese una nota válida (1-10)</div>
+                <div class="invalido" *ngIf="formularioEditar.controls['notaFinal'].dirty && formularioEditar.controls['notaFinal'].errors?.['max']">Ingrese una nota válida (1-10)</div>
+            </label>
+        </div>
+        <div class="row"> 
+            <label for="nombreProfesor"  class="form-label">
+                Nombre Profesor: 
+                <input type="text" name="nombreProfesor" formControlName="nombreProfesor" class="form-control" >
+                <div class="valido" *ngIf="formularioEditar.controls['nombreProfesor'].dirty && formularioEditar.controls['nombreProfesor'].valid">Correcto!</div>  
+                <div class="invalido" *ngIf="formularioEditar.controls['nombreProfesor'].dirty && formularioEditar.controls['nombreProfesor'].errors?.['required']">El campo es requerido</div>
+            </label>
+        </div>
+        <div class="row"> 
+            <label for="apellidoProfesor"  class="form-label">
+                Apellido Profesor: 
+                <input type="text" name="apellidoProfesor" formControlName="apellidoProfesor" class="form-control" >
+                <div class="valido" *ngIf="formularioEditar.controls['apellidoProfesor'].dirty && formularioEditar.controls['apellidoProfesor'].valid">Correcto!</div>  
+                <div class="invalido" *ngIf="formularioEditar.controls['apellidoProfesor'].dirty && formularioEditar.controls['apellidoProfesor'].errors?.['required']">El campo es requerido</div>
+            </label>
+        </div>
+        <div class="row"> 
+            <label for="materiaProfesor"  class="form-label">
+                Materia: 
+                <input type="text" name="materiaProfesor" formControlName="materiaProfesor" class="form-control" >
+                <div class="valido" *ngIf="formularioEditar.controls['materiaProfesor'].dirty && formularioEditar.controls['materiaProfesor'].valid">Correcto!</div>  
+                <div class="invalido" *ngIf="formularioEditar.controls['materiaProfesor'].dirty && formularioEditar.controls['materiaProfesor'].errors?.['required']">El campo es requerido</div>
+            </label>
+        </div>
+        <div class="row"> 
+            <label for="fechaAprobacion"  class="form-label">
+                Fecha de examen: 
+                <input type="date" name="fechaAprobacion" formControlName="fechaAprobacion" class="form-control" >
+                <div class="invalido" *ngIf="formularioEditar.controls['fechaAprobacion'].dirty && formularioEditar.controls['fechaAprobacion'].errors?.['required']">El campo es requerido</div>
+            </label>
+        </div>
+        <div class="row"> 
+            <label for="libre" class="form-check-label">Libre <input type="checkbox" name="libre" formControlName="libre" class="form-check-input"></label>
+        </div>
+    </form> 
+</div>
+
+<div mat-dialog-actions>
+    <button mat-raised-button color="primary" [mat-dialog-close]="formularioEditar">Aceptar</button>
+    <button mat-button color="warn" (click)="Cancelar()">Cancelar</button>
+</div>

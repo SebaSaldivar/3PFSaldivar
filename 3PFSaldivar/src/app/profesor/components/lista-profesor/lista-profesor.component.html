@@ -1,0 +1,49 @@
+
+<button mat-raised-button color="primary" (click)="AgregarProfe()" style="margin: 0.5rem;">Agregar Profesor</button>
+
+<hr>
+<div class="container">
+    <div class="row">
+        <div class="col-md-2" *ngFor="let profe of profesores$ | async">
+            <mat-card>
+                <mat-card-header>
+                    <mat-card-title>{{profe.apellido}}</mat-card-title>
+                    <mat-card-subtitle>{{profe.nombre}}</mat-card-subtitle>
+                </mat-card-header>
+                <img class="card-image" mat-card-image src="https://cdn.pixabay.com/photo/2015/12/22/04/00/photo-1103596_960_720.png">
+                 <mat-card-content>
+                   <p>Materia: {{profe.materia}} </p>    
+                </mat-card-content>
+                <mat-card-actions align="end">
+                     <button mat-raised-button color="primary" (click)="EditarProfesor(profe)">Editar</button>
+                    <button mat-button color="warn" (click)="EliminarProfe(profe)">Eliminar</button>
+                </mat-card-actions>
+            </mat-card>
+        </div>
+    </div>
+</div>
+<hr>
+<input type="text" placeholder="Ingrese la materia"[(ngModel)]="textoAFiltrar"> 
+<button mat-raised-button color="primary" (click)="filtrarProfe(textoAFiltrar)">Filtrar por Materia</button>
+<hr>
+<table class="table table-striped" *ngIf="tablaVisible">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Nombre</th>
+      <th scope="col">Apellido</th>
+      <th scope="col">Materia</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let profesor of profesoresFiltrado$ | async; let i = index">
+      <th scope="row">{{ i + 1 }}</th>
+      <td>{{ profesor.nombre }} </td>
+      <td>{{ profesor.apellido }} </td>
+      <td>{{ profesor.materia }} </td>
+    </tr>
+  </tbody>
+</table>
+
+
+  

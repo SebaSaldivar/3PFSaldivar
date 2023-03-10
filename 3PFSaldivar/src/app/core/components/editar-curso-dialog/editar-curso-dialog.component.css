@@ -1,0 +1,12 @@
+.invalido{
+    color:red;
+    }
+    
+.valido{
+    color:green;
+}
+
+.medidas-dialog{
+    width: 400px;
+    height: 600px;
+}

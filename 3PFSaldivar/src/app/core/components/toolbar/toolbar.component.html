@@ -1,0 +1,37 @@
+  <nav class="navbar" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="https://cdn.pixabay.com/photo/2016/12/17/15/50/logo-1913689_1280.png" alt="Logo" width="24" height="24" class="d-inline-block align-text-top">
+        SIU Coder
+      </a>
+      <form class="d-flex" role="search">
+        <input class="form-control me-2" type="search" placeholder="Palabra clave" aria-label="Palabra clave">
+        <button class="btn btn-outline-primary" type="submit">Buscar</button>
+      </form>
+    </div>
+  </nav>
+
+
+  <!-- <ng-container *ngIf="sesion$ | async as sesion"> -->
+    <mat-toolbar color="primary">
+      <mat-toolbar-row>      
+        <span appSizeTittle>Sistema de Gestión Académica </span>
+        <span class="example-spacer"> </span>      
+        <a mat-button routerLink="inicio">Inicio</a>
+        <a mat-button routerLink="estudiantes">Alumnos</a>
+        <a mat-button routerLink="cursos">Cursos</a>        
+        <!-- <a *ngIf="sesion.usuarioActivo?.admin" mat-button routerLink="profesores">Profesores</a>  -->       
+        <a mat-button routerLink="profesores">Profesores</a>
+        <a mat-button routerLink="autenticacion">Ingresar</a>
+        <button mat-icon-button class="example-icon2">
+          <mat-icon>help</mat-icon>
+        </button>
+        <!-- <button *ngIf="sesion.sesionActiva" mat-icon-button class="example-icon2" (click)="logout()"> -->
+        <button mat-icon-button class="example-icon2" (click)="logout()">
+          <mat-icon>logout</mat-icon>
+        </button>
+      </mat-toolbar-row>    
+    </mat-toolbar>
+ <!--  </ng-container> -->
+ 
+
